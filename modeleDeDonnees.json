@@ -1,0 +1,68 @@
+// Data is in name/value pairs
+// Data is separated by commas
+// Curly braces hold objects
+// Square brackets hold arrays
+//TODO Name & UID à mettre partout
+//TODO Point d'attachement pour initialiser représentation graphe 
+
+var sommets = { // Équipements
+    "capteurs":["capteur","capteur"]
+}
+var arcs = { // Flux
+    "mesuresS":["mesures","mesures","mesures"]
+};
+
+var capteur={
+    "id":"string",
+    "localisation":"position",
+    "dateApparition":"timeStamp",
+    "hierarchie":{  // Devrait être un tableau avec des pourcentages sur les différentes branches. Il peut y avoir plusieurs objets hiérarchie (double attachement).
+	"parent":"capteur",
+	"enfant":"capteur",
+	"niveau":"string"   
+    },
+    "metasCapteur":{
+	"fabricant":"string", //HP, Legrand 
+	"modele":"string",
+	"version":"string"
+    },
+    "infosCollecte":{
+	"protocole":"string",
+	"adresse":"string",
+	"registres":"string"
+    },
+"sommaire":{
+    "intervalle":{
+	"heure":"statistique",
+	"jour":"statistique",
+	tableau:[{"dimanche":"statistique"},{"lundi":"statistique"},{"mardi":"statistique"}],
+	"mois":"string"
+},
+    "capacites":{}
+};
+
+var mesures={
+    "localisation":"position",
+    "valeurs":[
+	{"TS1":"timeStamp","mesure1_1":"mesure","mesure1_2":"mesure"},
+	{"TS2":"timeStamp","mesure2_1":"mesure","mesure2_2":"mesure"}
+    ],
+    "seuils":{} // à détailler
+};
+
+var mesure = {
+    "valeur":"float",
+    "unite":"string",
+    "precision":"float"
+}; 
+
+var seuils = {
+    "seuil":{}
+};
+
+var position = {
+// Campus, Site, niveau, Salle, Travée (X,Y),  hauteur Z
+    "longitude":{"degres":"int","minutes":"int","secondes":"int"},
+    "lattitude":{"degres":"int","minutes":"int","secondes":"int"},
+    "hauteur":"float"
+};
