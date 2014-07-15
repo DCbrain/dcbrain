@@ -17,10 +17,15 @@ var capteur={
     "localisation":"position",
     "dateApparition":"timeStamp",
     "hierarchie":{  // Devrait être un tableau avec des pourcentages sur les différentes branches. Il peut y avoir plusieurs objets hiérarchie (double attachement).
-	"parent":"capteur",
-	"enfant":"capteur",
-	"niveau":"string"   
+	"tableau":[ 
+	    {"capteur":"uid",
+	     "sens":"parent ou enfant",
+	     "proba":"float"
+	    }
+	]
     },
+    "niveau":{"valeur":"int","proba":"float"   
+	     },
     "metasCapteur":{
 	"fabricant":"string", //HP, Legrand 
 	"modele":"string",
@@ -31,14 +36,23 @@ var capteur={
 	"adresse":"string",
 	"registres":"string"
     },
-"sommaire":{
-    "intervalle":{
-	"heure":"statistique",
-	"jour":"statistique",
-	tableau:[{"dimanche":"statistique"},{"lundi":"statistique"},{"mardi":"statistique"}],
-	"mois":"string"
-},
-    "capacites":{}
+    "sommaire":{
+	"intervalle":{
+	    "heure":"statistique",
+	    "jour":"statistique",
+	    tableau:[{"dimanche":"statistique"},{"lundi":"statistique"},{"mardi":"statistique"}],
+	    "mois":"string"
+	},
+	"capacites":{}
+    }
+};
+
+var statistique= {
+    "moyenne":"float",
+    "medianne":"float",
+    "max":"float",
+    "min":"float",
+    "quartiles":"float"
 };
 
 var mesures={
@@ -50,6 +64,11 @@ var mesures={
     "seuils":{} // à détailler
 };
 
+var probabilite={
+    "capteur":"UID",
+      
+     "valeur":"float"
+};
 var mesure = {
     "valeur":"float",
     "unite":"string",
